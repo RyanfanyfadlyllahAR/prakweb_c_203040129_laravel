@@ -1,6 +1,10 @@
 <?php
 
+
+
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view ('home', [
+   return view ('home', [
     "title"=> "Home"
     ]);
 });
@@ -30,52 +34,7 @@ Route::get('/about', function () {
 
 
 
-Route::get('/blog', function () {
-    $blog_posts = [
-        [
-            "title" => "Judul post pertama",
-            "slug" => "Judul-Post-Pertama",
-            "author" => "Ryan fany fadlyllah Ar",
-            "body" => "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius quae totam magni repellendus error, laborum, ipsam nesciunt sunt omnis facere non. Ut recusandae et qui eos fugit. Ex mollitia id perferendis amet sint vel animi ea porro repellendus. Optio illo praesentium iure aspernatur necessitatibus non recusandae, dolores blanditiis a, excepturi eum modi molestias commodi est. Corporis, commodi quibusdam perspiciatis sit repudiandae necessitatibus voluptatum asperiores nemo nostrum. Unde temporibus quisquam eaque soluta. Rerum animi labore esse consequatur ad, corrupti ducimus praesentium?"
-        ],
-        [
-            "title" => "Judul post kudua",
-            "slug"  => "Judul-Post-Kedua",
-            "author" => "fadlyllah",
-            "body" => "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius quae totam magni repellendus error, laborum, ipsam nesciunt sunt omnis facere non. Ut recusandae et qui eos fugit. Ex mollitia id perferendis amet sint vel animi ea porro repellendus. Optio illo praesentium iure aspernatur necessitatibus non recusandae, dolores blanditiis a, excepturi eum modi molestias commodi est. Corporis, commodi quibusdam perspiciatis sit repudiandae necessitatibus voluptatum asperiores nemo nostrum. Unde temporibus quisquam eaque soluta. Rerum animi labore esse consequatur ad, corrupti ducimus praesentium?"
-        ],
-    ];
-    return view ('posts', [
-        "title" => "Posts",
-        "post" => $blog_posts
-    ]);
-});
+Route::get('/posts', [PostController::class, 'index']);
 
 // halaman single post
-Route::get('posts/{slug}', function($slug) {
-    $blog_posts = [
-        [
-            "title" => "Judul post pertama",
-            "slug" => "Judul-Post-Pertama",
-            "author" => "Ryan fany fadlyllah Ar",
-            "body" => "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius quae totam magni repellendus error, laborum, ipsam nesciunt sunt omnis facere non. Ut recusandae et qui eos fugit. Ex mollitia id perferendis amet sint vel animi ea porro repellendus. Optio illo praesentium iure aspernatur necessitatibus non recusandae, dolores blanditiis a, excepturi eum modi molestias commodi est. Corporis, commodi quibusdam perspiciatis sit repudiandae necessitatibus voluptatum asperiores nemo nostrum. Unde temporibus quisquam eaque soluta. Rerum animi labore esse consequatur ad, corrupti ducimus praesentium?"
-        ],
-        [
-            "title" => "Judul post kudua",
-            "slug"  => "Judul-Post-Kedua",
-            "author" => "fadlyllah",
-            "body" => "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius quae totam magni repellendus error, laborum, ipsam nesciunt sunt omnis facere non. Ut recusandae et qui eos fugit. Ex mollitia id perferendis amet sint vel animi ea porro repellendus. Optio illo praesentium iure aspernatur necessitatibus non recusandae, dolores blanditiis a, excepturi eum modi molestias commodi est. Corporis, commodi quibusdam perspiciatis sit repudiandae necessitatibus voluptatum asperiores nemo nostrum. Unde temporibus quisquam eaque soluta. Rerum animi labore esse consequatur ad, corrupti ducimus praesentium?"
-        ],
-    ];
-
-    $new_post =[];
-    foreach($blog_posts as $post) {
-        if($post["slug"] === $slug) {
-            $new_post = $post;
-        }
-    }
-    return view('post', [
-        "title" => "Single Post",
-        "post" => $new_post
-    ]);
-});
+Route::get('/posts/{slug}',[PostController::class, 'show'] );
