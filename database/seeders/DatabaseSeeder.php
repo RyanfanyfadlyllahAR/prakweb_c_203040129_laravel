@@ -16,16 +16,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
-            'name' => 'Ryan fany fadlyllah Ar',
-            'email' => 'fadlyllahfanny@gmail.com',
-            'password' => bcrypt(12345)
-        ]);
-        User::create([
-            'name' => 'fadlyllah Ar',
-            'email' => 'fadlyllah@gmail.com',
-            'password' => bcrypt(12345)
-        ]);
+        
+
+    //    User::create([
+    //          'name' => 'Ryan fany fadlyllah Ar',
+    //          'email' => 'fadlyllahfanny@gmail.com',
+    //          'password' => bcrypt(12345)
+    //      ]);
+    //      User::create([
+    //          'name' => 'fadlyllah Ar',
+    //          'email' => 'fadlyllah@gmail.com',
+    //          'password' => bcrypt(12345)
+    //      ]);
+
+         User::factory(3)->create();
 
         Category::create([
             'name'=> 'Web programing',
@@ -37,41 +41,45 @@ class DatabaseSeeder extends Seeder
             'slug'=> 'personal'
         ]);
 
-        Post::create([
-            'title' => 'Judul Pertama',
-            'slug' => 'judul-pertama',
-            'excerpt' =>'Lorem ipsum dolor, sit amet consectetur adipisicing elit',
-            'body' =>'Lorem ipsum dolor, sit amet consectetur adipisicing elit.Eius quae totam magni repellendus error, laborum, ipsam nesciunt sunt omnis facere non.Ut recusandae et qui eos fugit. Ex mollitia id perferendis amet sint vel animi ea porro repellendus.Optio illo praesentium iure aspernatur necessitatibus non recusandae, dolores blanditiis a,excepturi eum modi molestias commodi est. Corporis, commodi quibusdam perspiciatis sitrepudiandae necessitatibus voluptatum asperiores nemo nostrum. Unde temporibus quisquam eaque soluta.',
-            'category_id'=>1,
-            'user_id' =>1
-        ]);
+        Post::factory(20)->create();
 
-        Post::create([
-            'title' => 'Judul Kedua',
-            'slug' =>'judul-Kedua',
-            'excerpt' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit',
-            'body' =>'Lorem ipsum dolor, sit amet consectetur adipisicing elit.Eius quae totam magni repellendus error, laborum, ipsam nesciunt sunt omnis facere non.Ut recusandae et qui eos fugit. Ex mollitia id perferendis amet sint vel animi ea porro repellendus.Optio illo praesentium iure aspernatur necessitatibus non recusandae, dolores blanditiis a,excepturi eum modi molestias commodi est. Corporis, commodi quibusdam perspiciatis sitrepudiandae necessitatibus voluptatum asperiores nemo nostrum. Unde temporibus quisquam eaque soluta.',
-            'category_id'=>1,
-            'user_id' =>1
-        ]);
-        Post::create([
-            'title' => 'Judul Ketiga',
-            'slug' => 'judul-Ketiga',
-            'excerpt' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit',
-            'body' =>'Lorem ipsum dolor, sit amet consectetur adipisicing elit.Eius quae totam magni repellendus error, laborum, ipsam nesciunt sunt omnis facere non.Ut recusandae et qui eos fugit. Ex mollitia id perferendis amet sint vel animi ea porro repellendus.Optio illo praesentium iure aspernatur necessitatibus non recusandae, dolores blanditiis a,excepturi eum modi molestias commodi est. Corporis, commodi quibusdam perspiciatis sitrepudiandae necessitatibus voluptatum asperiores nemo nostrum. Unde temporibus quisquam eaque soluta.',
-            'category_id'=>2,
-            'user_id' =>1
-        ]);
+        // Post::create([
+        //         'category_id' => 1,
+        //         'user_id' => 2,
+        //         'title' => 'Judul Pertama',
+        //         'slug' => 'judul-pertama',
+        //         'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, quo.',
+        //         'body' => 'Iniriyan'
+        //     ]);
 
-        Post::create([
-            'title' => 'Judul KeEmpat',
-            'slug' => 'judul-Keempat',
-            'excerpt' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit',
-            'body' =>'Lorem ipsum dolor, sit amet consectetur adipisicing elit.Eius quae totam magni repellendus error, laborum, ipsam nesciunt sunt omnis facere non.Ut recusandae et qui eos fugit. Ex mollitia id perferendis amet sint vel animi ea porro repellendus.Optio illo praesentium iure aspernatur necessitatibus non recusandae, dolores blanditiis a,excepturi eum modi molestias commodi est. Corporis, commodi quibusdam perspiciatis sitrepudiandae necessitatibus voluptatum asperiores nemo nostrum. Unde temporibus quisquam eaque soluta.',
-            'category_id'=>2,
-            'user_id' =>2
-        ]);
+        //     Post::create([
+        //             'category_id' => 1,
+        //             'user_id' => 2,
+        //             'title' => 'Judul Kedua',
+        //             'slug' => 'judul-ke-dua',
+        //             'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, quo.',
+        //             'body' => 'ini fanny'
+        //         ]);
+
+        // Post::create([
+        //     'category_id' => 1,
+        //     'user_id' => 2,
+        //     'title' => 'Judul Ketiga',
+        //     'slug' => 'judul-ke-tiga',
+        //     'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, quo.',
+        //     'body' => 'ininaonwe'
+        // ]);
+
+        // Post::create([
+        //         'category_id' => 1,
+        //         'user_id' => 2,
+        //         'title' => 'Judul Keempat',
+        //         'slug' => 'judul-ke-empat',
+        //         'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, quo.',
+        //         'body' => 'sadhjashd'
+        //     ]);
 
 
     }
 }
+
