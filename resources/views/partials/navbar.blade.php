@@ -13,7 +13,7 @@
           <a class="nav-link  {{ ($active === "about") ? 'active' : '' }}"href="/about">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link  {{ ($active === "blog") ? 'active' : '' }}" href="/dashboard">Blog</a>
+          <a class="nav-link  {{ ($active === "blog") ? 'active' : '' }}" href="/posts">Blog</a>
         </li>
         <li class="nav-item">
           <a class="nav-link  {{ ($active === "categories") ? 'active' : '' }}" href="/categories">Categories</a>
@@ -23,23 +23,23 @@
       <ul class="navbar-nav ms-auto">
         @auth
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Welcome back , {{ auth()->user()->name }}
-          </a>
+          {{-- <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Welcome back, {{ auth()->user()->name }}
+          </a> --}}
+          <form action="/logout" method="post" class="nav-link">
+            @csrf
+            <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right"></i> Logout</button>
+          </form>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-layout-text-sidebar-reverse"></i> My Dashboard</a></li>
             <li><hr class="dropdown-divider"></li>
             <li>
-              <form action="/logout" method="post">
-                @csrf
-                <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-in-right"></i> Logout</button>
-              </form>
             </li>
           </ul>
         </li>
         @else
         <li class="nav-item">
-           <a href="/login" class="nav-link {{ ($active === "categories") ? 'active' : '' }}"><i class="bi bi-box-arrow-in-right"></i>Login</a>
+          <a class="nav-link {{ ($active === "login") ? 'active' : '' }}" href="/login"><i class="bi bi-box-arrow-in-right"></i> Login</a>
         </li>
         @endauth
       </ul>
